@@ -114,4 +114,15 @@ describe Rover do
       expect(r.heading).to eq("E")
     end
   end
+
+  describe '#command' do
+    it 'parses and executes the individual commands of a command string' do
+      r = Rover.new(x: 1, y: 2, heading: "N")
+      r.command("LMLMLMLMM")
+
+      expect(r.x).to eq(1)
+      expect(r.y).to eq(3)
+      expect(r.heading).to eq("N")
+    end
+  end
 end

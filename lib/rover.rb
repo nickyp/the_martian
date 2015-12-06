@@ -11,6 +11,15 @@ class Rover
     @heading = heading.upcase
   end
 
+  def command(command_string)
+    command_string.split(//).each {|command|
+      command = command.downcase.to_sym
+      self.send(command) if self.respond_to?(command)
+    }
+
+    self
+  end
+
   def left
     case @heading
       when "N"
@@ -25,6 +34,7 @@ class Rover
         nil
     end
   end
+  alias_method :l, :left
 
   def right
     case @heading
@@ -40,6 +50,7 @@ class Rover
         nil
     end
   end
+  alias_method :r, :right
 
   def move
     case @heading
@@ -57,6 +68,7 @@ class Rover
 
     [self.x, self.y]
   end
+  alias_method :m, :move
 
   def northbound_move
     @y = @y + 1
