@@ -62,4 +62,35 @@ describe Rover do
 
     expect(r.heading).to eql("N")
   end
+
+  describe 'compass based movements' do
+    before(:each) do
+      @rover = Rover.new(x: 1, y: 1, heading: "N")
+    end
+
+    describe '#northbound_move' do
+      it 'updates the rovers coordinate on the y-axis' do
+        expect { @rover.northbound_move }.to change(@rover, :y).by(1)
+      end
+    end
+
+    describe '#southbound_move' do
+      it 'updates the rovers coordinate on the y-axis' do
+        expect { @rover.southbound_move }.to change(@rover, :y).by(-1)
+      end
+    end
+
+    describe '#eastbound_move' do
+      it 'updates the rovers coordinate on the x-axis' do
+        expect { @rover.eastbound_move }.to change(@rover, :x).by(1)
+      end
+    end
+
+    describe '#westbound_move' do
+      it 'updates the rovers coordinate on the x-axis' do
+        expect { @rover.westbound_move }.to change(@rover, :x).by(-1)
+      end
+    end
+
+  end
 end

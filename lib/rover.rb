@@ -41,4 +41,37 @@ class Rover
     end
   end
 
+  def move
+    case @heading
+      when "N"
+        northbound_move
+      when "E"
+        eastbound_move
+      when "S"
+        southbound_move
+      when "W"
+        westbound_move
+      else
+        nil
+    end
+
+    [self.x, self.y]
+  end
+
+  def northbound_move
+    @y = @y + 1
+  end
+
+  def southbound_move
+    @y = @y - 1
+  end
+
+  def eastbound_move
+    @x = @x + 1
+  end
+
+  def westbound_move
+    @x = @x - 1
+  end
+
 end
