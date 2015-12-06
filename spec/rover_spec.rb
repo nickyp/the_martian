@@ -17,6 +17,25 @@ describe Rover do
       r = Rover.new(x: 1, y: 1, heading: "s")
       expect(r).to be_a_kind_of(Rover)
     end
+  end
 
+  describe '#left' do
+    it 'changes heading counter-clockwise' do
+      r = Rover.new(heading: "N")
+      expect { r.left }.to change(r, :heading).to("W")
+      expect { r.left }.to change(r, :heading).to("S")
+      expect { r.left }.to change(r, :heading).to("E")
+      expect { r.left }.to change(r, :heading).to("N")
+    end
+  end
+
+  describe '#right' do
+    it 'changes heading clockwise' do
+      r = Rover.new(heading: "N")
+      expect { r.right }.to change(r, :heading).to("E")
+      expect { r.right }.to change(r, :heading).to("S")
+      expect { r.right }.to change(r, :heading).to("W")
+      expect { r.right }.to change(r, :heading).to("N")
+    end
   end
 end
