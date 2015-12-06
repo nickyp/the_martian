@@ -1,7 +1,7 @@
 class Rover
   COMPASS = %w{N E S W}
 
-  attr_accessor :x, :y, :heading
+  attr_reader :x, :y, :heading
 
   def initialize(x: 0, y: 0, heading: "N")
     @x = x
