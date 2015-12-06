@@ -91,6 +91,27 @@ describe Rover do
         expect { @rover.westbound_move }.to change(@rover, :x).by(-1)
       end
     end
+  end
 
+  describe 'rover 1 example' do
+    it 'works' do
+      r = Rover.new(x: 1, y: 2, heading: "N")
+      r.left; r.move; r.left; r.move; r.left; r.move; r.left; r.move; r.move
+
+      expect(r.x).to eq(1)
+      expect(r.y).to eq(3)
+      expect(r.heading).to eq("N")
+    end
+  end
+
+  describe 'rover 2 example' do
+    it 'works' do
+      r = Rover.new(x: 3, y: 3, heading: "E")
+      r.move; r.move; r.right; r.move; r.move; r.right; r.move; r.right; r.right; r.move
+
+      expect(r.x).to eq(5)
+      expect(r.y).to eq(1)
+      expect(r.heading).to eq("E")
+    end
   end
 end
