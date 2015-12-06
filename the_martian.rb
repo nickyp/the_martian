@@ -1,4 +1,6 @@
+#!/usr/bin/env ruby
 require_relative('./lib/rover.rb')
+require 'stringio'
 
 def science_the_shit_out_of_this
   input = <<-INPUT
