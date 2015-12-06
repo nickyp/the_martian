@@ -141,4 +141,22 @@ describe Rover do
       expect(r.heading).to eq("N")
     end
   end
+
+  describe '#to_s generates correct output using rover 1 example input' do
+    it 'works' do
+      r = Rover.land("1 2 N")
+      r.command("LMLMLMLMM")
+
+      expect(r.to_s).to eq("1 3 N")
+    end
+  end
+
+  describe '#to_s generates correct output using rover 2 example input' do
+    it 'works' do
+      r = Rover.land("3 3 E")
+      r.command("MMRMMRMRRM")
+
+      expect(r.to_s).to eq("5 1 E")
+    end
+  end
 end

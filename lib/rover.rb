@@ -11,6 +11,10 @@ class Rover
     @heading = heading.upcase
   end
 
+  def to_s
+    "#{self.x} #{self.y} #{self.heading}"
+  end
+
   def self.land(position)
     x, y, heading = position.split(/ /)
     raise ArgumentError.new("Invalid x-coordinate: #{x}") unless x = Integer(x)
