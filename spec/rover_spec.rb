@@ -17,6 +17,17 @@ describe Rover do
       r = Rover.new(x: 1, y: 1, heading: "s")
       expect(r).to be_a_kind_of(Rover)
     end
+
+    it 'accepts an x-coordinate' do
+      r = Rover.new(x: 6, y: 6, heading: "s")
+      expect(r.x).to eql(6)
+    end
+
+    it 'accepts a y-coordinate' do
+      r = Rover.new(x: 6, y: 6, heading: "s")
+      expect(r.y).to eql(6)
+    end
+
   end
 
   describe '#left' do
