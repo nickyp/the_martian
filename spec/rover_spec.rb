@@ -38,4 +38,17 @@ describe Rover do
       expect { r.right }.to change(r, :heading).to("N")
     end
   end
+
+  it 'supports combining orientation moves' do
+    r = Rover.new(heading: "N")
+
+      r.right
+      r.right
+      r.left
+      r.right
+      r.left
+      r.left
+
+    expect(r.heading).to eql("N")
+  end
 end
