@@ -11,6 +11,14 @@ class Rover
     @heading = heading.upcase
   end
 
+  def self.land(position)
+    x, y, heading = position.split(/ /)
+    raise ArgumentError.new("Invalid x-coordinate: #{x}") unless x = Integer(x)
+    raise ArgumentError.new("Invalid y-coordinate: #{y}") unless y = Integer(y)
+
+    Rover.new(x: x, y: y, heading: heading)
+  end
+
   def command(command_string)
     command_string.split(//).each {|command|
       command = command.downcase.to_sym

@@ -30,6 +30,22 @@ describe Rover do
 
   end
 
+  describe '.land' do
+    it 'parses a position string and lands the rover' do
+      r = Rover.land("1 2 N")
+
+      expect(r.x).to eq(1)
+      expect(r.y).to eq(2)
+      expect(r.heading).to eq("N")
+    end
+
+    it 'raises on bad input' do
+      expect { r = Rover.land("A 2 N") }.to raise_error(ArgumentError)
+      expect { r = Rover.land("1 A N") }.to raise_error(ArgumentError)
+      expect { r = Rover.land("1 2 A") }.to raise_error(ArgumentError)
+    end
+  end
+
   describe '#left' do
     it 'changes heading counter-clockwise' do
       r = Rover.new(heading: "N")
